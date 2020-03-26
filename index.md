@@ -15,7 +15,7 @@ Follow these instructions to build the theme.
 
 ### 1. Download the theme
 
-First download or clone the theme from the [Github repo](https://github.com/tomjoht/documentation-theme-jekyll). Most likely you won't be pulling in updates once you start customizing the theme, so downloading the theme (instead of cloning it) probably makes the most sense. In Github, click the **Clone or download** button, and then click **Download ZIP**.
+First, download or clone the theme from the [Github repo](https://github.com/tomjoht/documentation-theme-jekyll). Most likely you won't be pulling in updates once you start customizing the theme, so downloading the theme (instead of cloning it) probably makes the most sense. In Github, click the **Clone or download** button, and then click **Download ZIP**.
 
 ### 2. Install Jekyll
 
@@ -38,7 +38,7 @@ You'll want [Bundler](http://bundler.io/) to make sure all the Ruby gems needed 
 
 Use this option if you're not planning to publish your Jekyll site using [Github Pages](https://pages.github.com/).
 
-Bundler's Gemfile is how it specifies and manages project dependencies are managed. Although this project includes a Gemfile, this theme doesn't have any dependencies beyond core Jekyll. The Gemfile is used to specify gems needed for publishing on Github Pages. **If you're not planning to have Github Pages build your Jekyll project, delete these two files from the theme's root directory:**
+Bundler's Gemfile specifies how project dependencies are managed. Although this project includes a Gemfile, this theme doesn't have any dependencies beyond core Jekyll. The Gemfile is used to list gems needed for publishing on Github Pages. **If you're not planning to have Github Pages build your Jekyll project, delete these two files from the theme's root directory:**
 
 * Gemfile
 * Gemfile.lock
@@ -151,9 +151,9 @@ The top navigation works just like the sidebar. You can specify which topnav dat
 topnav: topnav
 ```
 
-Here the topnav refers to the \_data/topnav.yml file.
+Here the topnav refers to the `_data/topnav.yml` file.
 
-Because most topnav options will be the same, the \_config.yml file specifies the topnav file as a default:
+Because most topnav options will be the same, the `_config.yml` file specifies the topnav file as a default:
 
 ```yaml
 -
@@ -170,7 +170,7 @@ Because most topnav options will be the same, the \_config.yml file specifies th
 
 ## Sidebar syntax
 
-The sidebar data file uses a specific YAML syntax that you must follow. Follow the sample pattern shown in the theme, specically looking at mydoc_sidebar.yml as an example: Here's a code sample showing all levels:
+The sidebar data file uses a specific YAML syntax that you must follow. Follow the sample pattern shown in the theme, specically looking at `mydoc_sidebar.yml` as an example: Here's a code sample showing all levels:
 
 ```yaml
 entries:
@@ -239,7 +239,7 @@ The YAML syntax depends on exact spacing, so make sure you follow the pattern sh
 
 Each level must have at least one topic before the next level starts. You can't have a second level that contains multiple third levels without having at least one standalone topic in the second level. If you need a hierarchy that has a folder that contains other folders and no loose topics, use a blank `-` item like this:
 
-```yamll
+```yaml
 entries:
 - title: sidebar
   product: Jekyll Doc Theme
@@ -300,6 +300,10 @@ To accommodate the title page and table of contents in PDF outputs, each product
 Leave the output as `output: pdf` for these frontmatter pages so that they don't appear in the web output.
 
 For more detail on the sidebar, see [Sidebar navigation][mydoc_sidebar_navigation] and [YAML tutorial][mydoc_yaml_tutorial].
+
+## Comments
+
+The theme integrates [Commento.io](https://commento.io/) for comments below pages and posts. (This commenting service doesn't inject controversial tracking ads like Disqus does.) You will need to Commento.io account + plan ($5/month) to authorize Commento with your domain (no other configuration should be required). If you don't want comments, in the \_config.yml file, change the `comments: true` properties (under `defaults`) to `comments: false` in every instance. Then in the commento.html include file (inside \_includes), the `{% raw %}{% unless page.comments == false %} ... {% endunless %}{% endraw %}` logic will not insert the Commentio form.
 
 ## Relative links and offline viewing
 
